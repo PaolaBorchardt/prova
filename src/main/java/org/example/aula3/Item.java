@@ -1,0 +1,39 @@
+package org.example.aula3;
+
+import java.util.ArrayList;
+
+public class Item {
+    Heroi heroi;
+    private String nome;
+    private String tipo;
+    private int valor;
+
+    public Item(String nome, String tipo, int valor) {
+        this.nome = nome;
+        this.tipo = tipo;
+        this.valor = valor;
+    }
+
+    public void usar(Heroi heroi) {
+        if (tipo.equals("cura")) {
+            heroi.usarPocao();
+            System.out.println(" 🧪" + nome + " foi usado!");
+        }
+    }
+
+    public String getDescricao() {
+        return nome + " [" + tipo + " +" + valor + "]";
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public int getValor() {
+        return valor;
+    }
+}
