@@ -20,7 +20,7 @@ public class Main {
         heroi.adicionarItem(new Item("Pergaminho de Fogo", "ataque", 15));
         heroi.adicionarItem(new Item("Escudo Mágico", "cura", 15));
 
-
+        //MUDAR ISSO DE LUGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR
 
 
         System.out.println("\n✅ Herói criado com sucesso!");
