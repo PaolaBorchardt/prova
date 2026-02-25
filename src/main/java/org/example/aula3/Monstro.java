@@ -9,12 +9,12 @@ public class Monstro {
     private int xpRecompensa;
 
     public Monstro(String nome, String emoji, int vida, int ataque, int defesa, int xpRecompensa) {
-        this.nome = nome;
-        this.emoji = emoji;
-        this.vida = vida;
-        this.ataque = ataque;
-        this.defesa = defesa;
-        this.xpRecompensa = xpRecompensa;
+        this.nome = nome;                    //comum
+        this.emoji = emoji;                  //Exclusivo
+        this.vida = vida;                    //comum
+        this.ataque = ataque;                //comum
+        this.defesa = defesa;                //comum
+        this.xpRecompensa = xpRecompensa;   //Exclusivo
     }
 
     public String getNome() {

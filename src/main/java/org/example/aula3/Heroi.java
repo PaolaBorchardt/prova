@@ -15,13 +15,13 @@ public class Heroi {
     private int nivel = 1; // começa no nível 1
 
     public Heroi(String nome, int vida, int ataque, int defesa) {
-        this.nome = nome;
-        this.vidaMaxima = vida;
-        this.vidaAtual = vida;
-        this.ataque = ataque;
-        this.defesa = defesa;
-        this.pocoes = 3;
-        this.xp = 0;
+        this.nome = nome;        //Comum
+        this.vidaMaxima = vida;  //Comum
+        this.vidaAtual = vida;   //Comum
+        this.ataque = ataque;    //Comum
+        this.defesa = defesa;    //Comum
+        this.pocoes = 3;         //Exclusivo
+        this.xp = 0;             //Exclusivo
 
 
     }
