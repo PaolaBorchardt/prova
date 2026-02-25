@@ -17,14 +17,14 @@ Qual é a vantagem de ter o método receberDano() em um único lugar (Personagem
  Dê um exemplo de situação onde ter o código duplicado causaria um problema real.
 
  - A vantagem é que evita redundância no código, essa repetição sem necessidade, além disso, se torna mais fácil
-   fazer alteraçãoes. Se estiver nos dois lugares, precisa alterar duas vezes.
+   fazer alterações. Se estiver nos dois lugares, precisa alterar duas vezes.
 
  - O problema, como explicado acima, é que se esquecer de alterar um deles o jogo não vai funcionar da aneira correta.
 
 
 
 Pergunta 3:
-Por que o método exibirStatus() provavelmente ainda precisaria existir separadamente em Heroi e Monstro, mesmo depois
+Por que o método exibirStatus() provavelmente ainda precisaria existir separadamente em Herói e Monstro, mesmo depois
  de implementar a herança?
 
 

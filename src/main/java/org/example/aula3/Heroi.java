@@ -20,8 +20,8 @@ public class Heroi {
         this.vidaAtual = vida;   //Comum
         this.ataque = ataque;    //Comum
         this.defesa = defesa;    //Comum
-        this.pocoes = 3;         //Exclusivo
-        this.xp = 0;             //Exclusivo
+        this.pocoes = 3;         //Exclusivos
+        this.xp = 0;             //Exclusivos
 
 
     }
