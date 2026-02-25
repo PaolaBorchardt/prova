@@ -1,7 +1,5 @@
 package org.example.aula3;
 
-import java.util.ArrayList;
-
 public class Item {
     Heroi heroi;
     private String nome;
@@ -14,17 +12,27 @@ public class Item {
         this.valor = valor;
     }
 
-    public void usar(Heroi heroi) {
+    // Aplica o efeito do item no herói passado como parâmetro
+    public void usar(Heroi heroi, Monstro monstro) {
         if (tipo.equals("cura")) {
             heroi.usarPocao();
             System.out.println(" 🧪" + nome + " foi usado!");
         }
+        if (tipo.equals("ataque")) {
+            System.out.println("DEBUG: aplicando dano no monstro...");
+            System.out.println(nome + " 💥🔥 causou " + valor + " de dano!");
+            monstro.receberDano(valor);
+        }
     }
 
+
+    // Retorna descrição formatada: ex: "Poção Pequena [cura +20]"
     public String getDescricao() {
         return nome + " [" + tipo + " +" + valor + "]";
     }
 
+
+    //Getters
     public String getNome() {
         return nome;
     }

@@ -7,6 +7,7 @@ public class Batalhas {
     private Heroi heroi;
     private Monstro monstro;
     private Scanner scanner;
+    // int indice = lerEscolha();
 
     public Batalhas(Heroi heroi, Monstro monstro, Scanner scanner) {
         this.heroi = heroi;
@@ -14,8 +15,12 @@ public class Batalhas {
         this.scanner = scanner;
     }
 
+
+    //---------------- Metodos Privados ---------------------
+
     /**
      * Inicia e controla o loop de batalha
+     *
      * @return true se o heroi venceu, false se foi derrotado.
      */
 
@@ -39,8 +44,6 @@ public class Batalhas {
         return resolverFinal();
     }
 
-    //---------------- Metodos Privados ---------------------
-
     private void turnoHeroi() {
         System.out.println("\n O que " + heroi.getNome() + " faz?");
         System.out.println(" [1] Atacar");
@@ -61,10 +64,13 @@ public class Batalhas {
                 break;
             case 3:
                 heroi.listarInventario();
-                System.out.println("Esolha o número do item:");
+                System.out.println("Escolha o número do item:");
                 int indice = lerEscolha();
 
-                heroi.usarItem(indice);
+                boolean usou = heroi.usarItem(indice, monstro);
+                if (!usou) {
+                    System.out.println(" ⚠️ Turno não consumido.");
+                }
                 break;
             default:
                 System.out.println(" ❓ Opção inválida - turno perdido!!");
@@ -112,5 +118,6 @@ public class Batalhas {
             return -1;
         }
     }
+
 
 }

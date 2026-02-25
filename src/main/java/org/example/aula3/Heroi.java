@@ -13,6 +13,7 @@ public class Heroi {
     private int pocoes;
     private int xp;
 
+
     public Heroi(String nome, int vida, int ataque, int defesa) {
         this.nome = nome;
         this.vidaMaxima = vida;
@@ -22,9 +23,7 @@ public class Heroi {
         this.pocoes = 3;
         this.xp = 0;
 
-        inventario.add(new Item("Granada Sombria", "ataque", 40));
-        inventario.add(new Item("Pergaminho de Fogo", "ataque", 35));
-        inventario.add(new Item("Escudo Mágico", "cura", 15));
+
     }
 
     public String getNome() {
@@ -63,8 +62,7 @@ public class Heroi {
         vidaAtual -= danoReal;
         if (vidaAtual < 0) vidaAtual = 0;
 
-        System.out.println(" 💔" + nome + " recebeu " + danoReal + " de dano! "
-                + "[❤️ " + vidaAtual + "/" + vidaMaxima + "]");
+        System.out.println(" 💔" + nome + " recebeu " + danoReal + " de dano! " + "[❤️ " + vidaAtual + "/" + vidaMaxima + "]");
 
     }
 
@@ -83,10 +81,27 @@ public class Heroi {
         if (vidaAtual > vidaMaxima) vidaAtual = vidaMaxima;
 
         pocoes--;
-        System.out.println(" 🧪 " + nome + " usou poção! +30 💚 "
-                + "[💚 " + vidaAtual + "/" + vidaMaxima + "] [Poções: " + pocoes + "]");
+        System.out.println(" 🧪 " + nome + " usou poção! +30 💚 " + "[💚 " + vidaAtual + "/" + vidaMaxima + "] [Poções: " + pocoes + "]");
         return true;
     }
+
+    public void receberCura(int cura) {
+
+        if (vidaAtual == vidaMaxima) {
+            System.out.println(" ❤️ Vida já está cheia!");
+            return;
+        }
+
+        vidaAtual += cura;
+
+        if (vidaAtual > vidaMaxima) {
+            vidaAtual = vidaMaxima;
+        }
+
+        System.out.println(" 💚 " + nome + " recuperou +" + cura +
+                " HP! [" + vidaAtual + "/" + vidaMaxima + "]");
+    }
+
 
     public void ganharXp(int quantidade) {
         xp += quantidade;
@@ -107,55 +122,49 @@ public class Heroi {
 
     }
 
-
-
-    /*public void listarInventario() {
-        for(Item item : inventario) {
-            System.out.println(item.getNome());
-        }
-
-    }*/
-
-
-
-    public void addInventario(Item item) {
+    public void adicionarItem(Item item) {
         inventario.add(item);
+        System.out.println("📦 Item adicionado: " + item.getDescricao());
     }
 
     public void listarInventario() {
 
         if (inventario.isEmpty()) {
-            System.out.println("Inventário vazio!");
+            System.out.println("✖️ Inventário Vazio!");
             return;
         }
+
+        System.out.println("\n🎒 Inventário:");
 
         for (int i = 0; i < inventario.size(); i++) {
-            System.out.println(i + " - " + inventario.get(i).getNome());
+            System.out.println(" [" + i + "] " + inventario.get(i).getDescricao());
         }
+
     }
 
-    public void usarItem(int indice) {
+    public boolean usarItem(int indice, Monstro monstro) {
+
+        if (inventario.isEmpty()) {
+            System.out.println(" ❌ Inventário vazio!");
+            return false;
+        }
 
         if (indice < 0 || indice >= inventario.size()) {
-            System.out.println("Item inválido!");
-            return;
+            System.out.println(" ❌ Índice inválido!");
+            return false;
         }
 
         Item item = inventario.get(indice);
 
-        item.usar(this);           // chama o metodo da classe Item
+        item.usar(this, monstro);
+
         inventario.remove(indice);
+
+        return true;
     }
 
-
-
-   /* public void receberCura(int valor) {
-        System.out.println("Recuperou " + valor + " de vida!");
-    }*/
-
-    // adicionando itens ao inventário
-
 }
+
 
 
 

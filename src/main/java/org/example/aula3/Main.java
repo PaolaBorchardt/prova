@@ -16,8 +16,16 @@ public class Main {
 
         Heroi heroi = new Heroi(nomeHeroi, 100, 20, 5);
 
+        heroi.adicionarItem(new Item("Granada Sombria", "ataque", 40));
+        heroi.adicionarItem(new Item("Pergaminho de Fogo", "ataque", 15));
+        heroi.adicionarItem(new Item("Escudo Mágico", "cura", 15));
+
+
+
+
         System.out.println("\n✅ Herói criado com sucesso!");
         heroi.exibirStatus();
+
 
         Monstro[] monstros = {
                 new Monstro("Goblin", "👿", 40, 12, 2, 20),               //Fácil
