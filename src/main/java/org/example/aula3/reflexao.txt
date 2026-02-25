@@ -1,0 +1,33 @@
+Pergunta 1:
+Se Heroi extends Personagem (ou seja, Heroi herda de Personagem), quais linhas de Heroi.java poderiam ser removidas
+ sem perda de funcionalidade? Liste pelo menos 4 exemplos concretos (atributos ou métodos).
+
+
+ - private String nome;
+ - private int ataque;
+ - private int defesa;
+
+ - public void receberDano(int dano)
+ - public int atacar()
+
+
+
+Pergunta 2:
+Qual é a vantagem de ter o método receberDano() em um único lugar (Personagem) em vez de copiado em Heroi e Monstro?
+ Dê um exemplo de situação onde ter o código duplicado causaria um problema real.
+
+ - A vantagem é que evita redundância no código, essa repetição sem necessidade, além disso, se torna mais fácil
+   fazer alteraçãoes. Se estiver nos dois lugares, precisa alterar duas vezes.
+
+ - O problema, como explicado acima, é que se esquecer de alterar um deles o jogo não vai funcionar da aneira correta.
+
+
+
+Pergunta 3:
+Por que o método exibirStatus() provavelmente ainda precisaria existir separadamente em Heroi e Monstro, mesmo depois
+ de implementar a herança?
+
+
+ - Pois, embora essas classes tenham informações iguais (algumas citadas na questão 1) elas possuem peculiaridades
+   como: Heroi - nível, poções, inventário. Monstro: emoji, xp recompensa. Logo, precisa sobrescrever o método para
+   exibir dados próprios.

@@ -18,7 +18,7 @@ public class Item {
             heroi.usarPocao();
             System.out.println(" 🧪" + nome + " foi usado!");
         }
-        if (tipo.equals("ataque")) {
+        if (tipo.equals("ataque")) {                                                    //Novo
             System.out.println("DEBUG: aplicando dano no monstro...");
             System.out.println(nome + " 💥🔥 causou " + valor + " de dano!");
             monstro.receberDano(valor);

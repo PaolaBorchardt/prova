@@ -48,7 +48,7 @@ public class Batalhas {
         System.out.println("\n O que " + heroi.getNome() + " faz?");
         System.out.println(" [1] Atacar");
         System.out.println(" [2] Usar poção (" + heroi.getPocoes() + " restantes)");
-        System.out.println(" [3] Abrir Inventario");
+        System.out.println(" [3] Abrir Inventario");   //Novo
         System.out.println(" Escolha: ");
 
         int escolha = lerEscolha();
@@ -62,7 +62,7 @@ public class Batalhas {
             case 2:
                 heroi.usarPocao();
                 break;
-            case 3:
+            case 3:                                 //Novo
                 heroi.listarInventario();
                 System.out.println("Escolha o número do item:");
                 int indice = lerEscolha();
@@ -89,6 +89,10 @@ public class Batalhas {
             System.out.println(" 🎉 VITÓRIA!");
             System.out.println(" Você derrotou " + monstro.getNome() + "!");
             heroi.ganharXp(monstro.getXpRecompensa());
+
+            // 🎁 Recompensa aleatória
+            sortearRecompensa();                   //novo
+
             return true;
         } else {
             System.out.println(" 💀 DERROTA!");
@@ -96,6 +100,27 @@ public class Batalhas {
             return false;
         }
     }
+
+    //novo
+    private void sortearRecompensa() {
+        System.out.println("Você foi glorificado com um item! 👀");
+
+        int sorteio = (int) (Math.random() * 3);
+
+        if (sorteio == 0) {
+            heroi.adicionarItem(new Item("Poção Pequena", "cura", 20));
+        }
+
+        if (sorteio == 1) {
+            heroi.adicionarItem(new Item("Granada Sombria", "ataque", 50));
+        }
+
+        if (sorteio == 2) {
+            heroi.adicionarItem(new Item("Erva Medicinal", "cura", 40));
+        }
+
+    }
+
 
     private void exibirCabecalhoBatalha() {
         System.out.println("---------------------------------");

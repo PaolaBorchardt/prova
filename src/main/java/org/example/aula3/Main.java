@@ -16,22 +16,28 @@ public class Main {
 
         Heroi heroi = new Heroi(nomeHeroi, 100, 20, 5);
 
-        heroi.adicionarItem(new Item("Granada Sombria", "ataque", 40));
-        heroi.adicionarItem(new Item("Pergaminho de Fogo", "ataque", 15));
-        heroi.adicionarItem(new Item("Escudo Mágico", "cura", 15));
+        //novo
+        System.out.println("\n🎉 Você já tem alguns itens disponíveis!!");
+        heroi.adicionarItem(new Item("Granada Sombria", "ataque", 50));
+        heroi.adicionarItem(new Item("Pergaminho de Fogo", "ataque", 35));
+        heroi.adicionarItem(new Item("Escudo Mágico", "cura", 50));
 
-        //MUDAR ISSO DE LUGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR
-
+        /*TESTE TEMPORÁRIO
+        heroi.ganharXp(60);   // total: 60 XP → não sobe (precisa de 100)
+        heroi.ganharXp(50);   // total: 110 XP → LEVEL UP para nível 2!
+        heroi.ganharXp(100);
+        heroi.exibirStatus();
+        */
 
         System.out.println("\n✅ Herói criado com sucesso!");
         heroi.exibirStatus();
 
 
         Monstro[] monstros = {
-                new Monstro("Goblin", "👿", 40, 12, 2, 20),               //Fácil
-                new Monstro("Orc Guerreiro", "👺", 50, 14, 2, 25),        //Fácil
-                new Monstro("Zumbi", "🧟", 35, 12, 1, 10),                //Fácil - Novo Monstro (NM)
-                new Monstro("Esqueleto Arqueiro", "💀", 50, 17, 4, 40),   //Médio - NM
+                new Monstro("Goblin", "👿", 40, 12, 2, 25),               //Fácil
+                new Monstro("Orc Guerreiro", "👺", 50, 14, 2, 30),        //Fácil
+                new Monstro("Zumbi", "🧟", 35, 12, 1, 20),                //Fácil - Novo Monstro (NM)
+                new Monstro("Esqueleto Arqueiro", "💀", 70, 17, 4, 45),   //Médio - NM
                 new Monstro("Lobisomem", "🐺", 90, 20, 7, 50),            //Médio - NM
                 new Monstro("Verdugo", "🕷️️", 110, 25, 9, 85),             //Difícil - NM
                 new Monstro("Bruxa Sombria", "🧙", 160, 35, 12, 130),     //Chefe - NM

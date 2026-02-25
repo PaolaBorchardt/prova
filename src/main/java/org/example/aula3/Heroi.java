@@ -12,7 +12,7 @@ public class Heroi {
     private int defesa;
     private int pocoes;
     private int xp;
-
+    private int nivel = 1; // começa no nível 1
 
     public Heroi(String nome, int vida, int ataque, int defesa) {
         this.nome = nome;
@@ -102,10 +102,10 @@ public class Heroi {
                 " HP! [" + vidaAtual + "/" + vidaMaxima + "]");
     }
 
-
     public void ganharXp(int quantidade) {
         xp += quantidade;
         System.out.println(" ⭐⬆️" + quantidade + " XP! [Total: " + xp + "]");
+        verificarNivel();  //novo
     }
 
     public boolean estaVivo() {
@@ -113,7 +113,8 @@ public class Heroi {
     }
 
     public void exibirStatus() {
-        System.out.println("\n🦸‍♂️ " + nome);
+        System.out.println("\n 🦸‍♂️ " + nome);
+        System.out.println(" 🏅 Nível:  " + nivel);
         System.out.println(" ❤️ Vida: " + vidaAtual + "/" + vidaMaxima);
         System.out.println(" ⚔️ Ataque: " + ataque);
         System.out.println(" 🛡️ Defesa: " + defesa);
@@ -142,6 +143,8 @@ public class Heroi {
 
     }
 
+    //Novo - Evolução de níveis ( 3 )
+
     public boolean usarItem(int indice, Monstro monstro) {
 
         if (inventario.isEmpty()) {
@@ -163,7 +166,37 @@ public class Heroi {
         return true;
     }
 
+    public int getNivel() {
+        return nivel;
+    }
+
+    private void verificarNivel() {
+        int xpNecessario = nivel * 100;
+
+        if (xp >= xpNecessario) {
+            nivel++;
+
+            ataque += 5;
+            defesa += 2;
+            vidaMaxima += 20;
+            vidaAtual += 20;
+            pocoes += 1;
+
+            // Garantir que a vida não passe do máximo
+            if (vidaAtual > vidaMaxima) vidaAtual = vidaMaxima;
+
+            // Exibir mensagem de Level Up
+            System.out.println("\n  ✨ LEVEL UP! ✨");
+            System.out.println("  " + nome + " chegou ao Nível " + nivel + "!");
+            System.out.println("  ⚔️  Ataque +5  |  🛡️  Defesa +2  |  ❤️  Vida +20  |  🧪 +1 Poção");
+        }
+    }
+
+
 }
+
+
+
 
 
 
